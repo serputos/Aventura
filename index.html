@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AVENTURA</title>
+    <style>
+      body {
+        max-width: 30rem;
+        margin: 0 auto;
+      }
+      .text {
+        background-color: rgb(80, 255, 89);
+        padding: 2em;
+        margin-bottom: 2em;
+        font-size: x-large;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>Benvingut a la teva aventura</div>
+    </header>
+
+    <main>
+      <header><h1>Pagina</h1></header>
+      <section class="text">Contenido Pagina</section>
+
+      <footer>
+        <button onclick="ferNo()"><b>NO</b></button>
+
+        <button onclick="ferSi()"><b>SI</b></button>
+      </footer>
+    </main>
+
+    <script>
+      let historia = [
+        {
+          text: "FUNCIONA????", //0
+          si: 8,
+          no: 1,
+        },
+        {
+          text: "LO HAS TOCADO ??!", //1
+          si: 3,
+          no: 4,
+        },
+        {
+          text: "SIN PROBLEMA", //2
+          fi: true,
+        },
+        {
+          text: "BURRROO! LO SABE AGUIEN ??", //3
+          si: 5,
+          no: 6,
+        },
+        {
+          text: "NOS DARA PROBLEMAS ??", //4
+          si: 5,
+          no: 7,
+        },
+        {
+          text: "LA HAS CAGADO! PUEDES CULPAR A ALGUIEN? ", //5
+          si: 2,
+          no: 5,
+        },
+        {
+          text: "ESCONDELOO ", //6
+          go: 2,
+        },
+        {
+          text: "LANZALOOO ", //7
+          go: 2,
+        },
+        {
+          text: "NO TOQUES ", //8
+          go: 2,
+        },
+      ];
+
+      let pagina = 0;
+      let text = document.querySelector(".text");
+      text.textContent = historia[pagina].text;
+
+      function ferSi() {
+        pagina = historia[pagina].si;
+        text.textContent = historia[pagina].text;
+      }
+
+      function ferNo() {
+        pagina = historia[pagina].no;
+        text.textContent = historia[pagina].text;
+      }
+    </script>
+  </body>
+</html>
