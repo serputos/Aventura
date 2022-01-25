@@ -12,28 +12,39 @@
         margin: 0 auto;
       }
       .text {
-        background-color: rgb(80, 255, 89);
-        padding: 2em;
-        margin-bottom: 2em;
         font-size: x-large;
       }
     </style>
   </head>
   <body>
-    <header>
-      <div>Benvingut a la teva aventura</div>
-    </header>
+    <div class="marco">
+      <div class="contenido">
+        <div class="sub">
+          <div>
+            <div class="header">Benvingut a la teva aventura</div>
+            <header><h1 class="numPag">0</h1></header>
+          </div>
 
-    <main>
-      <header><h1>Pagina</h1></header>
-      <section class="text">Contenido Pagina</section>
+          <div>
+            <section class="text">Contenido Pagina</section>
+          </div>
 
-      <footer>
-        <button onclick="ferNo()"><b>NO</b></button>
+          <div class="footer">
+            <button class="buton" id="on" onclick="ferNo()"><b>NO</b></button>
 
-        <button onclick="ferSi()"><b>SI</b></button>
-      </footer>
-    </main>
+            <button class="buton" id="on2" onclick="ferSi()"><b>SI</b></button>
+
+            <button
+              class="buton"
+              id="restart"
+              onclick="window.location.reload()"
+            >
+              <b>RESTART</b>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script>
       let historia = [
@@ -67,31 +78,48 @@
           no: 5,
         },
         {
-          text: "ESCONDELOO ", //6
-          go: 2,
+          text: "ESCONDELOO, SIN PROBLEMA", //6
+          fi: true,
         },
         {
-          text: "LANZALOOO ", //7
-          go: 2,
+          text: "LANZALOOO, SIN PROBLEMA ", //7
+          fi: true,
         },
         {
-          text: "NO TOQUES ", //8
-          go: 2,
+          text: "NO TOQUES, SIN PROBLEMA ", //8
+          fi: true,
         },
       ];
 
       let pagina = 0;
       let text = document.querySelector(".text");
       text.textContent = historia[pagina].text;
+      document.getElementById("restart").hidden = true;
 
       function ferSi() {
         pagina = historia[pagina].si;
         text.textContent = historia[pagina].text;
+        numPagina();
+        if (historia[pagina].fi === true) {
+          finalPag();
+        }
       }
 
       function ferNo() {
         pagina = historia[pagina].no;
         text.textContent = historia[pagina].text;
+        numPagina();
+        if (historia[pagina].fi === true) {
+          finalPag();
+        }
+      }
+      function numPagina() {
+        document.querySelector(".numPag").innerHTML = pagina;
+      }
+      function finalPag() {
+        document.getElementById("on").hidden = true;
+        document.getElementById("on2").hidden = true;
+        document.getElementById("restart").hidden = false;
       }
     </script>
   </body>
