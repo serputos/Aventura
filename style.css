@@ -89,6 +89,7 @@ section {
   border-radius: 15px;
   margin-bottom: 10px;
 }
+
 .camiBox {
   top: -200px;
   right: -520px;
@@ -96,11 +97,12 @@ section {
   position: relative;
   font-size: 20px;
   font-family: Georgia;
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
+
+  gap: 10px;
   padding: 42px;
 
   margin-right: 100px;
   border-radius: 15px;
+
+  word-wrap: break-word;
 }
