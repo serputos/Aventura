@@ -46,6 +46,26 @@
       </div>
     </div>
 
+    <div class="nameBox">
+      <div>
+        <h2>Nombre del Jugador</h2>
+      </div>
+      <div>
+        <input type="text" id="uname" />
+      </div>
+      <button onclick="TakeName()"><b>Enviar</b></button>
+    </div>
+
+    <div class="nameBox2">
+      <h2>Nom :</h2>
+      <h2 class="nombreJugador"></h2>
+    </div>
+
+    <div class="camiBox">
+      <h2>Cami:</h2>
+      <h2 class="camiPag"></h2>
+    </div>
+
     <script>
       let historia = [
         {
@@ -95,6 +115,8 @@
       let text = document.querySelector(".text");
       text.textContent = historia[pagina].text;
       document.getElementById("restart").hidden = true;
+      let inputName = document.querySelector(".nombreJugador");
+      let pagCami = [];
 
       function ferSi() {
         pagina = historia[pagina].si;
@@ -114,12 +136,19 @@
         }
       }
       function numPagina() {
-        document.querySelector(".numPag").innerHTML = pagina;
+        document.querySelector(".numPag").innerHTML = "Pagina " + pagina;
+
+        pagCami.push(pagina);
+        document.querySelector(".camiPag").innerHTML = pagCami;
       }
       function finalPag() {
         document.getElementById("on").hidden = true;
         document.getElementById("on2").hidden = true;
         document.getElementById("restart").hidden = false;
+      }
+      function TakeName() {
+        let theName = document.getElementById("uname").value;
+        inputName.textContent = theName;
       }
     </script>
   </body>
